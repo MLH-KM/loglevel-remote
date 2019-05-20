@@ -1,24 +1,24 @@
 {
-    "name": "loglevel-remote",
-    "version": "0.0.0",
-    "main": "built.js",
-    "license": "MIT",
-    "scripts": {
-        "build": "swc index.js -o built.js",
-        "format": "prettier --write index.js",
-        "release": "yarn format && yarn build && release -P"
-    },
-    "peerDependencies": {
-        "loglevel": "^1.6.1"
-    },
-    "dependencies": {
-        "ky": "^0.11.0",
-        "lodash": "^4.17.11"
-    },
-    "devDependencies": {
-        "@swc/cli": "^0.1.18",
-        "@swc/core": "^1.0.42",
-        "prettier": "^1.17.1",
-        "release": "^6.0.1"
-    }
+  "name": "loglevel-remote",
+  "version": "0.2.0",
+  "main": "built.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "swc index.js -o built.js",
+    "format": "prettier --write index.js",
+    "release": "yarn format && yarn build && release -P"
+  },
+  "peerDependencies": {
+    "loglevel": "^1.6.1"
+  },
+  "dependencies": {
+    "ky": "^0.11.0",
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.1.18",
+    "@swc/core": "^1.0.42",
+    "prettier": "^1.17.1",
+    "release": "^6.0.1"
+  }
 }
