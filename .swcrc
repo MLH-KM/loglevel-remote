@@ -1,0 +1,18 @@
+{
+    "minify": true,
+    "jsc": {
+        "target": "es2015",
+        "parser": {
+            "syntax": "ecmascript",
+            "jsx": false,
+            "classProperty": true
+        }
+    },
+    "module": {
+        "type": "commonjs",
+        "strict": false,
+        "strictMode": true,
+        "lazy": false,
+        "noInterop": false
+    }
+}
