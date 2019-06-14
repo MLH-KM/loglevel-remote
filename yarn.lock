@@ -1122,10 +1122,10 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-ky@^0.11.0:
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/ky/-/ky-0.11.0.tgz#032e01e10979f9f16682f6acff7daf43cafa5507"
-  integrity sha512-8EHh1PfPKrERUf5XTSSUkuvfMygg6qyFmW7fqjjHxoGTySMQ5TfF006QenZmtcSSbJmd71wLYY04xxIS7vNpJg==
+ky@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/ky/-/ky-0.11.1.tgz#0bdffb441eb92ac910124ac6cd63088db9e66b5f"
+  integrity sha512-ppp6nrKXRTCMVsWP0sDDdLJXXNnH+5defcpQNiNE712/KpdGwG87290ldFAGsx4CAI/F2eVg3Exql0Oo/eGU5A==
 
 lazy-cache@^1.0.4:
   version "1.0.4"
