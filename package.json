@@ -1,12 +1,12 @@
 {
   "name": "loglevel-remote",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "built.js",
   "license": "MIT",
   "scripts": {
     "build": "swc index.js -o built.js",
     "format": "prettier --write index.js",
-    "release": "yarn format && yarn build && release -P"
+    "release": "yarn format && yarn build && release"
   },
   "peerDependencies": {
     "loglevel": "^1.6.1"
