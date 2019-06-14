@@ -32,10 +32,10 @@
     slash "^2.0.0"
     source-map "^0.7.3"
 
-"@swc/core@^1.0.42":
-  version "1.0.42"
-  resolved "https://registry.yarnpkg.com/@swc/core/-/core-1.0.42.tgz#8d21343c173ba25f49416712fd7d75f9088951c9"
-  integrity sha512-vpn/d7Y0S0ZzjxW0662P0h9PdWB9cQ1W0wmNvf49JfTqWvmoCmU3piFpVjztzPvDRj9cQn0E9ENFRD7eRZ1BgA==
+"@swc/core@^1.0.43":
+  version "1.0.43"
+  resolved "https://registry.yarnpkg.com/@swc/core/-/core-1.0.43.tgz#8e93142edc0a390dc3ed6647b842022d1142b596"
+  integrity sha512-ghmsCDKGMMBqTCI/LbY8r6+uvjsnF9HWnkmfXR+w0Se4uN9xulAVqe/uZQ3ZgR7ASbNbicp15L29juV5iswDpQ==
   dependencies:
     mkdirp "^0.5.1"
     neon-cli "^0.2.0"
