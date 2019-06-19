@@ -1,6 +1,6 @@
 {
   "name": "loglevel-remote",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "main": "built.js",
   "license": "MIT",
   "scripts": {
