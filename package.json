@@ -1,41 +1,41 @@
 {
-    "name": "loglevel-remote",
-    "version": "0.2.2",
-    "main": "built.js",
-    "license": "MIT",
-    "scripts": {
-        "build": "babel index.js -o built.js",
-        "build:watch": "babel index.js -ow built.js",
-        "format": "prettier --write '*.{js,json, md}'",
-        "prerelease": "yarn format && yarn build",
-        "release": "yarn prerelease && release",
-        "lint": "eslint index.js"
-    },
-    "peerDependencies": {
-        "loglevel": "^1.6.1"
-    },
-    "dependencies": {
-        "core-js": "3",
-        "ky": "^0.11.1",
-        "lodash": "^4.17.11"
-    },
-    "devDependencies": {
-        "@babel/cli": "^7.4.4",
-        "@babel/core": "^7.4.5",
-        "@babel/plugin-proposal-class-properties": "^7.4.4",
-        "@babel/polyfill": "^7.4.4",
-        "@babel/preset-env": "^7.4.5",
-        "@swc/cli": "^0.1.18",
-        "@swc/core": "^1.0.43",
-        "babel-eslint": "^10.0.2",
-        "babel-plugin-minify-replace": "^0.5.0",
-        "babel-plugin-transform-remove-console": "^6.9.4",
-        "babel-preset-minify": "^0.5.0",
-        "eslint": "^5.16.0",
-        "eslint-config-prettier": "^5.0.0",
-        "eslint-plugin-prettier": "^3.1.0",
-        "eslint-plugin-promise": "^4.1.1",
-        "prettier": "^1.18.2",
-        "release": "^6.0.1"
-    }
+  "name": "loglevel-remote",
+  "version": "0.2.3",
+  "main": "built.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel index.js -o built.js",
+    "build:watch": "babel index.js -ow built.js",
+    "format": "prettier --write '*.{js,json, md}'",
+    "prerelease": "yarn format && yarn build",
+    "release": "yarn prerelease && release",
+    "lint": "eslint index.js"
+  },
+  "peerDependencies": {
+    "loglevel": "^1.6.1"
+  },
+  "dependencies": {
+    "core-js": "3",
+    "ky": "^0.11.1",
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@swc/cli": "^0.1.18",
+    "@swc/core": "^1.0.43",
+    "babel-eslint": "^10.0.2",
+    "babel-plugin-minify-replace": "^0.5.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "babel-preset-minify": "^0.5.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^5.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-promise": "^4.1.1",
+    "prettier": "^1.18.2",
+    "release": "^6.0.1"
+  }
 }
