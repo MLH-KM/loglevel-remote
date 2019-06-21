@@ -1,3 +1,6 @@
+// eslint-disable-next-line
+const VERSION = __VERSION__;
+
 import ky from 'ky';
 import * as _ from 'lodash';
 
@@ -6,6 +9,7 @@ const DEFAULT_INTERVAL = 1000 * 10;
 
 class LogBatch {
     constructor(options = {}) {
+        console.debug(`loglevel-remote v${VERSION}`);
         this._headers = options.headers || undefined;
         this.intervalDuration = options.interval || DEFAULT_INTERVAL;
         this.logStore = { logObjs: [], createdAt: new Date() };
@@ -44,16 +48,20 @@ class LogBatch {
         const logObjs = store.logObjs;
 
         if (Array.isArray(logObjs) && logObjs.length > 0) {
-            const result = await ky
-                .post('/client-logs', {
-                    json: { logObjs },
-                    headers: httpHeaders
-                })
-                .json();
+            try {
+                const result = await ky
+                    .post('/client-logs', {
+                        json: { logObjs },
+                        headers: httpHeaders
+                    })
+                    .json();
 
-            console.debug('result:', result);
-            console.debug('store: ', store);
-            this.clear();
+                console.debug('result:', result);
+                console.debug('store: ', store);
+                this.clear();
+            } catch (error) {
+                console.error(error);
+            }
         } else {
             console.debug('no log messages sent - none found in store');
         }
@@ -94,19 +102,23 @@ const logLevelRemote = (log, options = {}) => {
         const logMethod = _.indexOf(LOG_METHODS, methodName);
 
         return (...messages) => {
-            console.debug('messages', messages);
+            try {
+                console.debug('messages', messages);
 
-            const logObj = {
-                version,
-                client,
-                level: _.isNil(logMethod) ? -1 : logMethod,
-                label: loggerName,
-                occurredAt: new Date(),
-                args: messages,
-                trace: new Error().stack
-            };
+                const logObj = {
+                    version,
+                    client,
+                    level: _.isNil(logMethod) ? -1 : logMethod,
+                    label: loggerName,
+                    occurredAt: new Date(),
+                    args: messages,
+                    trace: new Error().stack
+                };
 
-            logBatch.add(logObj);
+                logBatch.add(logObj);
+            } catch (error) {
+                console.error(error);
+            }
 
             rawMethod(...messages);
         };
