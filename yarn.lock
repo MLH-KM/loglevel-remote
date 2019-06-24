@@ -707,10 +707,10 @@
     slash "^2.0.0"
     source-map "^0.7.3"
 
-"@swc/core@^1.0.43":
-  version "1.0.43"
-  resolved "https://registry.yarnpkg.com/@swc/core/-/core-1.0.43.tgz#8e93142edc0a390dc3ed6647b842022d1142b596"
-  integrity sha512-ghmsCDKGMMBqTCI/LbY8r6+uvjsnF9HWnkmfXR+w0Se4uN9xulAVqe/uZQ3ZgR7ASbNbicp15L29juV5iswDpQ==
+"@swc/core@^1.0.45":
+  version "1.0.45"
+  resolved "https://registry.yarnpkg.com/@swc/core/-/core-1.0.45.tgz#ce83bd8c96cbcdbae3e170b2b11c6f682c2b311f"
+  integrity sha512-fkZZnqRglfM5qIxvMd4CFrRxKscbU/EhcYb7T6hoihy/7ipD9oqoRrxvOCp87BsjLwmVdXMX4X3oI4f6hbayYA==
   dependencies:
     mkdirp "^0.5.1"
     neon-cli "^0.2.0"
