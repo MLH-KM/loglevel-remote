@@ -4,6 +4,10 @@ require("core-js/modules/es.symbol");
 
 require("core-js/modules/es.array.filter");
 
+require("core-js/modules/es.array.iterator");
+
+require("core-js/modules/es.array.map");
+
 require("core-js/modules/es.object.get-own-property-descriptor");
 
 require("core-js/modules/es.object.get-own-property-descriptors");
@@ -14,7 +18,11 @@ require("core-js/modules/es.object.to-string");
 
 require("core-js/modules/es.promise");
 
+require("core-js/modules/es.string.iterator");
+
 require("core-js/modules/web.dom-collections.for-each");
+
+require("core-js/modules/web.dom-collections.iterator");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -43,7 +51,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var VERSION = "0.3.0";
+var VERSION = "0.4.0";
 var LOG_METHODS = ['error', 'warn', 'info', 'debug', 'trace'];
 var DEFAULT_INTERVAL = 1000 * 10;
 
@@ -86,11 +94,11 @@ var LogBatch = function LogBatch() {
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee() {
-    var headers, httpHeaders, store, logObjs, result;
-    return regeneratorRuntime.wrap(function _callee$(_context) {
+  regeneratorRuntime.mark(function _callee2() {
+    var headers, httpHeaders, store, logObjs, sendLogObjs, MAX_LOGS, result;
+    return regeneratorRuntime.wrap(function _callee2$(_context2) {
       while (1) {
-        switch (_context.prev = _context.next) {
+        switch (_context2.prev = _context2.next) {
           case 0:
             headers = _this._headers;
             httpHeaders = _.isFunction(headers) ? headers() : _.isPlainObject(headers) ? headers : undefined;
@@ -98,77 +106,111 @@ var LogBatch = function LogBatch() {
             logObjs = store.logObjs;
 
             if (!(Array.isArray(logObjs) && logObjs.length > 0)) {
-              _context.next = 19;
+              _context2.next = 22;
               break;
             }
 
-            _context.prev = 5;
-            _context.next = 8;
-            return _ky.default.post('/client-logs', {
-              json: {
-                logObjs: logObjs
-              },
-              headers: httpHeaders
-            }).json();
+            _context2.prev = 5;
 
-          case 8:
-            result = _context.sent;
+            sendLogObjs =
+            /*#__PURE__*/
+            function () {
+              var _ref2 = _asyncToGenerator(
+              /*#__PURE__*/
+              regeneratorRuntime.mark(function _callee(logObjs) {
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                  while (1) {
+                    switch (_context.prev = _context.next) {
+                      case 0:
+                        _context.next = 2;
+                        return _ky.default.post('/client-logs', {
+                          json: {
+                            logObjs: logObjs
+                          },
+                          headers: httpHeaders
+                        }).json();
+
+                      case 2:
+                        return _context.abrupt("return", _context.sent);
+
+                      case 3:
+                      case "end":
+                        return _context.stop();
+                    }
+                  }
+                }, _callee);
+              }));
+
+              return function sendLogObjs(_x) {
+                return _ref2.apply(this, arguments);
+              };
+            }();
+
+            MAX_LOGS = 10; // Chunk the logObjs before sending to avoid payload size failures.
+
+            _context2.next = 10;
+            return Promise.all(_.chunk(logObjs, MAX_LOGS).map(sendLogObjs));
+
+          case 10:
+            result = _context2.sent;
             console.debug('result:', result);
-            console.debug('store: ', store);
+            console.debug('store:', store);
 
             _this.clear();
 
-            _context.next = 17;
+            _context2.next = 20;
             break;
 
-          case 14:
-            _context.prev = 14;
-            _context.t0 = _context["catch"](5);
-            console.error(_context.t0);
+          case 16:
+            _context2.prev = 16;
+            _context2.t0 = _context2["catch"](5);
+            console.error(_context2.t0); // TODO Remove this once only unique errors are sent back to the server
 
-          case 17:
-            _context.next = 20;
-            break;
-
-          case 19:
-            console.debug('no log messages sent - none found in store');
+            _this.clear();
 
           case 20:
+            _context2.next = 23;
+            break;
+
+          case 22:
+            console.debug('no log messages sent - none found in store');
+
+          case 23:
           case "end":
-            return _context.stop();
+            return _context2.stop();
         }
       }
-    }, _callee, null, [[5, 14]]);
+    }, _callee2, null, [[5, 16]]);
   })));
 
   _defineProperty(this, "interval",
   /*#__PURE__*/
   _asyncToGenerator(
   /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee2() {
-    return regeneratorRuntime.wrap(function _callee2$(_context2) {
+  regeneratorRuntime.mark(function _callee3() {
+    return regeneratorRuntime.wrap(function _callee3$(_context3) {
       while (1) {
-        switch (_context2.prev = _context2.next) {
+        switch (_context3.prev = _context3.next) {
           case 0:
-            _context2.prev = 0;
-            _context2.next = 3;
+            _context3.prev = 0;
+            _context3.next = 3;
             return _this.send();
 
           case 3:
-            _context2.next = 8;
+            _context3.next = 8;
             break;
 
           case 5:
-            _context2.prev = 5;
-            _context2.t0 = _context2["catch"](0);
-            console.error(_context2.t0);
+            _context3.prev = 5;
+            _context3.t0 = _context3["catch"](0);
+            console.error(_context3.t0);
 
           case 8:
           case "end":
-            return _context2.stop();
+            return _context3.stop();
         }
       }
-    }, _callee2, null, [[0, 5]]);
+    }, _callee3, null, [[0, 5]]);
   })));
 
   _defineProperty(this, "_startInterval", function () {
