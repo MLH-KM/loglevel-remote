@@ -1,4 +1,3 @@
-// eslint-disable-next-line
 const VERSION = __VERSION__;
 
 import ky from 'ky';
@@ -71,7 +70,7 @@ class LogBatch {
         try {
             await this.send();
         } catch (error) {
-            throw error;
+            console.error(error);
         }
     };
 
