@@ -68,6 +68,8 @@ class LogBatch {
                 this.clear();
             } catch (error) {
                 console.error(error);
+                // TODO Remove this once only unique errors are sent back to the server
+                this.clear();
             }
         } else {
             console.debug('no log messages sent - none found in store');
