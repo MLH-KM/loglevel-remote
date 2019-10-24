@@ -64,7 +64,7 @@ class LogBatch {
                 );
 
                 console.debug('result:', result);
-                console.debug('store: ', store);
+                console.debug('store:', store);
                 this.clear();
             } catch (error) {
                 console.error(error);
