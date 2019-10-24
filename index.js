@@ -48,12 +48,20 @@ class LogBatch {
 
         if (Array.isArray(logObjs) && logObjs.length > 0) {
             try {
-                const result = await ky
-                    .post('/client-logs', {
-                        json: { logObjs },
-                        headers: httpHeaders
-                    })
-                    .json();
+                const sendLogObjs = async logObjs =>
+                    await ky
+                        .post('/client-logs', {
+                            json: { logObjs },
+                            headers: httpHeaders
+                        })
+                        .json();
+
+                const MAX_LOGS = 10;
+
+                // Chunk the logObjs before sending to avoid payload size failures.
+                const result = await Promise.all(
+                    _.chunk(logObjs, MAX_LOGS).map(sendLogObjs)
+                );
 
                 console.debug('result:', result);
                 console.debug('store: ', store);

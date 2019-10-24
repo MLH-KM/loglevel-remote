@@ -6,7 +6,8 @@ module.exports = {
         'plugin:promise/recommended'
     ],
     env: {
-        browser: true
+        browser: true,
+        es6: true
     },
     parserOptions: {
         ecmaVersion: 2018,
