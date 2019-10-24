@@ -43,7 +43,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-// eslint-disable-next-line
 var VERSION = "0.3.0";
 var LOG_METHODS = ['error', 'warn', 'info', 'debug', 'trace'];
 var DEFAULT_INTERVAL = 1000 * 10;
@@ -162,7 +161,7 @@ var LogBatch = function LogBatch() {
           case 5:
             _context2.prev = 5;
             _context2.t0 = _context2["catch"](0);
-            throw _context2.t0;
+            console.error(_context2.t0);
 
           case 8:
           case "end":
