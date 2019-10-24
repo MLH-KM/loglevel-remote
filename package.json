@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "core-js": "3",
-    "ky": "^0.11.1",
+    "ky": "^0.15.0",
     "lodash": "^4.17.15"
   },
   "devDependencies": {
