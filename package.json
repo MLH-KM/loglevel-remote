@@ -1,52 +1,52 @@
 {
-  "name": "loglevel-remote",
-  "version": "0.3.0",
-  "main": "built.js",
-  "license": "MIT",
-  "scripts": {
-    "build": "babel index.js -o built.js",
-    "build:watch": "babel index.js -ow built.js",
-    "format": "prettier --write '*.{js,json, md}'",
-    "prerelease": "yarn format && yarn build",
-    "release": "yarn prerelease && release",
-    "lint": "eslint index.js"
-  },
-  "peerDependencies": {
-    "loglevel": "^1.6.1"
-  },
-  "dependencies": {
-    "core-js": "3",
-    "ky": "^0.15.0",
-    "lodash": "^4.17.15"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.6.4",
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/polyfill": "^7.4.4",
-    "@babel/preset-env": "^7.6.3",
-    "babel-eslint": "^10.0.2",
-    "babel-plugin-minify-replace": "^0.5.0",
-    "babel-plugin-transform-remove-console": "^6.9.4",
-    "babel-preset-minify": "^0.5.0",
-    "eslint": "^6.5.1",
-    "eslint-config-prettier": "^6.0.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "husky": ">=3",
-    "lint-staged": ">=9",
-    "prettier": "^1.18.2",
-    "release": "^6.0.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
+    "name": "loglevel-remote",
+    "version": "0.3.0",
+    "main": "built.js",
+    "license": "MIT",
+    "scripts": {
+        "build": "babel index.js -o built.js",
+        "build:watch": "babel index.js -ow built.js",
+        "format": "prettier --write '*.{js,json, md}'",
+        "before-release": "yarn format && yarn build",
+        "release": "yarn before-release && yarn release",
+        "lint": "eslint index.js"
+    },
+    "peerDependencies": {
+        "loglevel": "^1.6.1"
+    },
+    "dependencies": {
+        "core-js": "3",
+        "ky": "^0.15.0",
+        "lodash": "^4.17.15"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.6.4",
+        "@babel/core": "^7.5.5",
+        "@babel/plugin-proposal-class-properties": "^7.5.5",
+        "@babel/polyfill": "^7.4.4",
+        "@babel/preset-env": "^7.6.3",
+        "babel-eslint": "^10.0.2",
+        "babel-plugin-minify-replace": "^0.5.0",
+        "babel-plugin-transform-remove-console": "^6.9.4",
+        "babel-preset-minify": "^0.5.0",
+        "eslint": "^6.5.1",
+        "eslint-config-prettier": "^6.0.0",
+        "eslint-plugin-prettier": "^3.1.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "husky": ">=3",
+        "lint-staged": ">=9",
+        "prettier": "^1.18.2",
+        "release": "^6.0.1"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.js": [
+            "eslint --fix",
+            "git add"
+        ]
     }
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ]
-  }
 }
