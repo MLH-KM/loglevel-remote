@@ -51,7 +51,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var VERSION = "0.4.0";
+var VERSION = "0.5.0";
 var LOG_METHODS = ['error', 'warn', 'info', 'debug', 'trace'];
 var DEFAULT_INTERVAL = 1000 * 10;
 
