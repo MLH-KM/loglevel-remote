@@ -5,6 +5,7 @@ import * as _ from 'lodash';
 
 const LOG_METHODS = ['error', 'warn', 'info', 'debug', 'trace'];
 const DEFAULT_INTERVAL = 1000 * 10;
+const MAX_LOGS = 10;
 
 class LogBatch {
     constructor(options = {}) {
@@ -55,8 +56,6 @@ class LogBatch {
                             headers: httpHeaders
                         })
                         .json();
-
-                const MAX_LOGS = 10;
 
                 // Chunk the logObjs before sending to avoid payload size failures.
                 const result = await Promise.all(
