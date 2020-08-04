@@ -38,7 +38,7 @@
     "husky": ">=3",
     "lint-staged": ">=9",
     "prettier": "^1.18.2",
-    "release": "^6.0.1"
+    "release": "^6.3.0"
   },
   "husky": {
     "hooks": {
