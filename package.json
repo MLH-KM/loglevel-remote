@@ -37,7 +37,7 @@
     "eslint-plugin-unicorn": "^12.1.0",
     "husky": ">=3",
     "lint-staged": ">=9",
-    "prettier": "^1.18.2",
+    "prettier": "^2.2.1",
     "release": "^6.3.0"
   },
   "husky": {
