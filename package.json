@@ -35,7 +35,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-unicorn": "^12.1.0",
-    "husky": ">=3",
+    "husky": ">=5",
     "lint-staged": ">=9",
     "prettier": "^1.18.2",
     "release": "^6.3.0"
